@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+require('./config/config');
 require('./db/mongoose');
 
 const todoRoutes = require('./routes/todoRoutes');
@@ -13,10 +14,8 @@ app.use(bodyParser.json());
 todoRoutes(app);
 userRoutes(app);
 
-const port =  process.env.PORT || 3000;
-
-app.listen(port, () => {
-  console.log('Server is running on ' + port)
+app.listen(process.env.PORT, () => {
+  console.log('Server is running on ' + process.env.PORT)
 });
 
 module.exports = { app };

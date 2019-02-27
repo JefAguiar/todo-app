@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-mongoose.connect("mongodb://localhost:17017/todo-db?authSource=admin", {
-    user: 'mongoadmin',
-    pass: 'mongoadmin',
+mongoose.connect(process.env.MONGODB_URI, {
+    user: process.env.MONGODB_USER,
+    pass: process.env.MONGODB_PASS,
     useMongoClient: true
 });
 
